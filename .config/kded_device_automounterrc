@@ -1,0 +1,25 @@
+[Devices][/org/freedesktop/UDisks2/block_devices/nvme0n1p1]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=SYSTEM
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/nvme0n1p3]
+Icon=drive-harddisk
+LastNameSeen=Windows
+
+[Devices][/org/freedesktop/UDisks2/block_devices/nvme0n1p4]
+Icon=drive-harddisk
+LastNameSeen=Windows RE tools
+
+[Devices][/org/freedesktop/UDisks2/block_devices/nvme0n1p5]
+EverMounted=true
+Icon=drive-harddisk
+LastNameSeen=1.0 GiB Internal Drive (nvme0n1p5)
+LastSeenMounted=true
+
+[Devices][/org/freedesktop/UDisks2/block_devices/nvme0n1p6]
+EverMounted=true
+Icon=drive-harddisk-root
+LastNameSeen=fedora_localhost-live
+LastSeenMounted=true

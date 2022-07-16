@@ -42,7 +42,7 @@ function lscwd() {
 }
 # custom aliases
 
-alias vim="nvim"
+alias vim="lvim"
 alias l="/bin/ls --group-directories-first --color=auto"
 alias ls="/bin/ls --group-directories-first --color=auto"
 alias ll="/bin/ls -lh --group-directories-first --color=auto"
@@ -52,3 +52,4 @@ alias cd="cdls"
 alias d="sudo dnf upgrade && flatpak update"
 unset rc
 alias config='/usr/bin/git --git-dir=/home/deventseng/.cfg/ --work-tree=/home/deventseng'
+. "$HOME/.cargo/env"

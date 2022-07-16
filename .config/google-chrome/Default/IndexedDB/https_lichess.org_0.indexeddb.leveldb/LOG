@@ -1,0 +1,6 @@
+2022/07/02-12:11:07.947 6722 Creating DB /home/deventseng/.config/google-chrome/Default/IndexedDB/https_lichess.org_0.indexeddb.leveldb since it was missing.
+2022/07/02-12:11:07.965 6722 Reusing MANIFEST /home/deventseng/.config/google-chrome/Default/IndexedDB/https_lichess.org_0.indexeddb.leveldb/MANIFEST-000001
+2022/07/02-14:43:41.516 6d41 Level-0 table #5: started
+2022/07/02-14:43:41.522 6d41 Level-0 table #5: 1549 bytes OK
+2022/07/02-14:43:41.533 6d41 Delete type=0 #3
+2022/07/02-14:43:41.533 6d41 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
