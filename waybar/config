@@ -1,0 +1,127 @@
+{
+    "height": 37, // Waybar height (to be removed for auto height)
+    "modules-left": ["sway/workspaces", "custom/media"],
+    "modules-center": ["clock"],
+    "modules-right": ["idle_inhibitor", "sway/language", "pulseaudio", "backlight", "battery", "network", "custom/power", "tray"],
+
+    // Modules configuration
+     "sway/workspaces": {
+         "disable-scroll": false,
+         "all-outputs": true,
+         "format": "<span font='17'>{icon}</span>",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "ﭮ",
+             "5": "",
+             "6": "",
+             "7": "",
+             "8": "",
+             "9": "",
+             "10": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+     },
+    "custom/power": {
+        "format": "",
+        "interval": "once", 
+        "on-click": "wlogout -p layer-shell",
+        "tooltip": false
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/language": {
+        "format": "{short} <span font='14'></span>"
+    },
+    "idle_inhibitor": {
+        "format": "<span font='15'>{icon}</span>",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+	"format": "{:%H:%M} <span font='14'></span>",
+	"format-alt": "{:%A, %B %d, %Y} "
+    },
+    "cpu": {
+        "format": "{usage}% <span font='14'></span>",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% <span font='14'></span>"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C <span font='14'>{icon}</span>",
+        "format-icons": [" ", " ", " "]
+    },
+    "backlight": {
+        "format": "<span font='13'>{icon}</span> {percent}%",
+        "format-icons": ["", ""],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1"
+    },
+    "battery": {
+        "bat": "BAT1",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "tooltip-format": "{timeTo}, {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " ",
+        "format-alt": "{time} {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "<span font='14'>直</span> connected",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "睊 disconnected",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format": "{essid} {signalStrength}%"
+    },
+    "pulseaudio": {
+        "format": "<span font='14'>{icon}</span> {volume}%  {format_source}",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format-bluetooth-muted": "  {volume}%  {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "tooltip-format": "{desc}, {volume}%",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-middle": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "default": ""
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause",
+    }
+}
