@@ -1,0 +1,3 @@
+com.discordapp.Discord
+com.todoist.Todoist
+org.mozilla.firefox
