@@ -1,0 +1,19 @@
+alias l="/bin/ls --group-directories-first --color=auto"
+alias ls="/bin/ls --group-directories-first --color=auto"
+alias ll="/bin/ls -lh --group-directories-first --color=auto"
+alias la="/bin/ls -A --group-directories-first --color=auto"
+alias lla="/bin/ls -lAh --group-directories-first --color=auto"
+alias cd="cdls"
+alias df='/usr/bin/df -h'
+alias free='free -m'
+alias kh='cut -d "," -f 1 ~/.ssh/known_hosts | cut -d " " -f 1 | uniq'
+alias zshrc="$EDITOR $HOME/.zshrc"
+alias zshenv="$EDITOR $HOME/.zshenv"
+alias d="sudo dnf upgrade --refresh && flatpak update && nvim +PackerSync"
+alias vim=$EDITOR
+alias open="xdg-open"
+alias locate="locate -e"
+alias gdb="gdb -tui"
+alias y="sudo dnf upgrade --refresh && flatpak update && nvim +PackerSync"
+alias governor="cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+alias kde-reload="qdbus org.kde.KWin /KWin reconfigure"
