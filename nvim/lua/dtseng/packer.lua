@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     })
     use('MetriC-DT/balance-theme.nvim')
-    use('theprimeagen/harpoon')
     use('tpope/vim-fugitive')
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -54,6 +53,13 @@ return require('packer').startup(function(use)
         end
     }
     use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
@@ -63,4 +69,14 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+    use({
+        'crispgm/nvim-tabline',
+        config = function()
+            require('tabline').setup({})
+        end,
+    })
+    use 'mfussenegger/nvim-dap'
+    use {'mfussenegger/nvim-dap-python', requires = {"mfussenegger/nvim-dap"}}
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use {'vimwiki/vimwiki'}
 end)

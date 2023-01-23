@@ -10,7 +10,6 @@ local opts = {
 }
 
 local mappings = {
-    ["w"] = { "<cmd>update!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
 
     b = {
