@@ -1,3 +1,3 @@
-require("dtseng.remap")
-require("dtseng.packer")
-require("dtseng.set")
+require("config.remap")
+require("config.packer")
+require("config.set")
