@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "Project View" })
 
 -- move highlighted text around
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -36,16 +35,16 @@ vim.keymap.set('n', '<Leader>L', '<C-W>L')
 vim.keymap.set('n', 'gf', '<C-W>gf')
 
 -- Tabs
-vim.keymap.set('n', '<Leader>1', '1gt')
-vim.keymap.set('n', '<Leader>2', '2gt')
-vim.keymap.set('n', '<Leader>3', '3gt')
-vim.keymap.set('n', '<Leader>4', '4gt')
-vim.keymap.set('n', '<Leader>5', '5gt')
-vim.keymap.set('n', '<Leader>6', '6gt')
-vim.keymap.set('n', '<Leader>7', '7gt')
-vim.keymap.set('n', '<Leader>8', '8gt')
-vim.keymap.set('n', '<Leader>9', '9gt')
-vim.keymap.set('n', '<Leader>0', ':tablast<CR>')
+-- vim.keymap.set('n', '<Leader>1', '1gt')
+-- vim.keymap.set('n', '<Leader>2', '2gt')
+-- vim.keymap.set('n', '<Leader>3', '3gt')
+-- vim.keymap.set('n', '<Leader>4', '4gt')
+-- vim.keymap.set('n', '<Leader>5', '5gt')
+-- vim.keymap.set('n', '<Leader>6', '6gt')
+-- vim.keymap.set('n', '<Leader>7', '7gt')
+-- vim.keymap.set('n', '<Leader>8', '8gt')
+-- vim.keymap.set('n', '<Leader>9', '9gt')
+-- vim.keymap.set('n', '<Leader>0', ':tablast<CR>')
 
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
@@ -64,5 +63,9 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- front and end line jumps
 vim.keymap.set("n", "B", "^")
 vim.keymap.set("n", "E", "$")
+
 -- make executable
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Buffers
+vim.keymap.set("n", "<Leader>bk", ":%bd", {desc = "Buffer kill all"})

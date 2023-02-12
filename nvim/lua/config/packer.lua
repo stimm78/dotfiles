@@ -69,12 +69,7 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    use({
-        'crispgm/nvim-tabline',
-        config = function()
-            require('tabline').setup({})
-        end,
-    })
+    use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
     -- use {
     --   "mfussenegger/nvim-dap",
     --   opt = true,
@@ -95,8 +90,8 @@ return require('packer').startup(function(use)
     --   end,
     -- }
     use {'vimwiki/vimwiki'}
-    use {'uga-rosa/ccc.nvim'}
     use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
     use { "catppuccin/nvim", as = "catppuccin" }
+    -- Using Packer
 end)
 

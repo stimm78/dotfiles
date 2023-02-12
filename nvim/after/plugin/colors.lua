@@ -40,9 +40,12 @@
 --         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 --     },
 -- })
+--
+-- vim.cmd.colorscheme("catppuccin")
+
 -- Example config in Lua
 require("github-theme").setup({
-  theme_style = "light_default",
+  theme_style = "light",
   function_style = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
 
@@ -60,3 +63,4 @@ require("github-theme").setup({
   end
 })
 vim.cmd.colorscheme("github_light_default")
+
