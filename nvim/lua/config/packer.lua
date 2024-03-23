@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     })
+    use 'nvim-treesitter/nvim-treesitter-context'
     use('MetriC-DT/balance-theme.nvim')
     use('tpope/vim-fugitive')
     use {
@@ -70,28 +71,11 @@ return require('packer').startup(function(use)
         end
     }
     use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
-    -- use {
-    --   "mfussenegger/nvim-dap",
-    --   opt = true,
-    --   event = "BufReadPre",
-    --   module = { "dap" },
-    --   wants = { "nvim-dap-virtual-text", "DAPInstall.nvim", "nvim-dap-ui", "nvim-dap-python", "which-key.nvim" },
-    --   requires = {
-    --     "Pocco81/DAPInstall.nvim",
-    --     "theHamsta/nvim-dap-virtual-text",
-    --     "rcarriga/nvim-dap-ui",
-    --     "mfussenegger/nvim-dap-python",
-    --     "nvim-telescope/telescope-dap.nvim",
-    --     { "leoluz/nvim-dap-go", module = "dap-go" },
-    --     { "jbyuki/one-small-step-for-vimkind", module = "osv" },
-    --   },
-    --   config = function()
-    --     require("config.dap").setup()
-    --   end,
-    -- }
+    use {"mfussenegger/nvim-dap"}
     use {'vimwiki/vimwiki'}
     use ({ 'projekt0n/github-nvim-theme', tag = 'v0.0.7' })
-    use { "catppuccin/nvim", as = "catppuccin" }
+    use {'lervag/vimtex'}
+    use {'habamax/vim-godot'}
     -- Using Packer
 end)
 

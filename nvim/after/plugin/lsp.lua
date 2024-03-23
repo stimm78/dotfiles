@@ -1,6 +1,13 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
+require('lspconfig').gdscript.setup{
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+
 -- Fix Undefined global 'vim'
 lsp.configure('sumneko_lua', {
     settings = {

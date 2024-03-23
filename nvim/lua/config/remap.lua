@@ -69,3 +69,6 @@ vim.keymap.set("n", "E", "$")
 
 -- Buffers
 vim.keymap.set("n", "<Leader>bk", ":%bd", {desc = "Buffer kill all"})
+
+-- Rebind ; to , in f
+vim.keymap.set('n', '.', ';')

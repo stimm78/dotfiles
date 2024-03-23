@@ -1,6 +1,8 @@
 -- cmp mappings
 local cmp = require('cmp')
 local ls = require('luasnip')
+require('luasnip').filetype_extend("javascript", { "javascriptreact" })
+require('luasnip').filetype_extend("javascript", { "html" })
 
 cmp.setup {
   mapping = {
