@@ -32,18 +32,27 @@ vim.keymap.set("n", "E", "$")
 vim.keymap.set('n', '<Leader>L', ':Lazy sync<CR>', { desc = "Lazy sync" })
 
 
---LSP Config
+--LSP mappings
 vim.keymap.set("n", "<leader>eh", vim.lsp.buf.hover, { desc = "Hover" })
-vim.keymap.set("n", "<leader>ed", vim.lsp.buf.definition, { desc = "Go definition" })
-vim.keymap.set({ "n", "v" }, "<leader>ea", vim.lsp.buf.code_action, { desc = "Code Actions" })
+vim.keymap.set("n", "<leader>eg", vim.lsp.buf.definition, { desc = "Go definition"})
+vim.keymap.set({ "n", "v" }, "<leader>ea", vim.lsp.buf.code_action, { desc = "Code actions"})
 vim.keymap.set("n", "<leader>ef", vim.lsp.buf.format, { desc = "Format" })
+vim.keymap.set('n', '<Leader>ee', vim.lsp.buf.rename, { silent = false, desc = "Rename all" })
+vim.keymap.set('n', '<Leader>ed', vim.lsp.buf.rename, { desc = "Diagnostics" })
 
 -- neotree mappings
 vim.keymap.set('n', '<leader>t', ':Neotree toggle <CR>', { desc = "Neotree toggle " })
-
 
 -- telescope mappings
 vim.keymap.set("n", "<leader>ff", ':Telescope find_files <CR>', {})
 vim.keymap.set("n", "<leader>fg", ':Telescope live_grep <CR>', {})
 vim.keymap.set("n", "<leader>fb", ':Telescope buffers <CR>', {})
 vim.keymap.set("n", "<leader>fh", ':Telescope help_tags <CR>', {})
+
+-- fugitive mappings
+vim.keymap.set('n', '<Leader>gs', ':Git<CR>')
+vim.keymap.set('n', '<Leader>gp', ':Git push<CR>')
+vim.keymap.set('n', '<Leader>gf', ':Git fetch<CR>')
+vim.keymap.set('n', '<Leader>gd', ':Gvdiffsplit!<CR>')
+vim.keymap.set('n', '<Leader>gh', ':diffget //2<CR>')
+vim.keymap.set('n', '<Leader>gl', ':diffget //3<CR>')
