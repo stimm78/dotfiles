@@ -34,8 +34,8 @@ vim.keymap.set('n', '<Leader>L', ':Lazy sync<CR>', { desc = "Lazy sync" })
 
 --LSP mappings
 vim.keymap.set("n", "<leader>eh", vim.lsp.buf.hover, { desc = "Hover" })
-vim.keymap.set("n", "<leader>eg", vim.lsp.buf.definition, { desc = "Go definition"})
-vim.keymap.set({ "n", "v" }, "<leader>ea", vim.lsp.buf.code_action, { desc = "Code actions"})
+vim.keymap.set("n", "<leader>eg", vim.lsp.buf.definition, { desc = "Go definition" })
+vim.keymap.set({ "n", "v" }, "<leader>ea", vim.lsp.buf.code_action, { desc = "Code actions" })
 vim.keymap.set("n", "<leader>ef", vim.lsp.buf.format, { desc = "Format" })
 vim.keymap.set('n', '<Leader>ee', vim.lsp.buf.rename, { silent = false, desc = "Rename all" })
 vim.keymap.set('n', '<Leader>ed', vim.lsp.buf.rename, { desc = "Diagnostics" })
@@ -56,3 +56,20 @@ vim.keymap.set('n', '<Leader>gf', ':Git fetch<CR>')
 vim.keymap.set('n', '<Leader>gd', ':Gvdiffsplit!<CR>')
 vim.keymap.set('n', '<Leader>gh', ':diffget //2<CR>')
 vim.keymap.set('n', '<Leader>gl', ':diffget //3<CR>')
+
+-- barbar mappings
+vim.keymap.set("n", "<Leader><", "<Cmd>BufferMovePrevious<CR>", { desc = "Move buffer left" })
+vim.keymap.set("n", "<Leader>>", "<Cmd>BufferMoveNext<CR>", { desc = "Move buffer right" })
+
+vim.keymap.set("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>")
+vim.keymap.set("n", "<Leader>2", "<Cmd>BufferGoto 2<CR>")
+vim.keymap.set("n", "<Leader>3", "<Cmd>BufferGoto 3<CR>")
+vim.keymap.set("n", "<Leader>4", "<Cmd>BufferGoto 4<CR>")
+vim.keymap.set("n", "<Leader>5", "<Cmd>BufferGoto 5<CR>")
+vim.keymap.set("n", "<Leader>6", "<Cmd>BufferGoto 6<CR>")
+vim.keymap.set("n", "<Leader>7", "<Cmd>BufferGoto 7<CR>")
+vim.keymap.set("n", "<Leader>8", "<Cmd>BufferGoto 8<CR>")
+vim.keymap.set("n", "<Leader>9", "<Cmd>BufferGoto 9<CR>")
+vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLast<CR>")
+
+vim.keymap.set("n", "<C-w>", "<Cmd>BufferClose<CR>", { desc = "Close Buffer" })

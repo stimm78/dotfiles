@@ -1,8 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ";"
 
-
-
 -- OPTIONS
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -38,6 +36,9 @@ vim.opt.updatetime = 50
 -- enable smart case
 vim.o.smartcase = true
 vim.o.ignorecase = true
+
+-- enable system clipboard
+vim.o.clipboard = 'unnamedplus'
 
 -- vimtex settings
 vim.g.vimtex_view_general_viewer = 'okular'

@@ -14,7 +14,7 @@ return {
         map("n", "<A-]>", "<Cmd>BufferMoveNext<CR>", opts)
 
         -- Goto buffer in position...
-        map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+        map("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
         map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
         map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
         map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
