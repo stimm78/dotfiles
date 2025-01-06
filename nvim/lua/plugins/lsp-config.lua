@@ -10,7 +10,7 @@ return {
         config = function()
             require("mason-lspconfig").setup({
                 -- add new LSPs here
-                ensure_installed = { "lua_ls", "pyright", "clangd", "texlab" },
+                ensure_installed = { "lua_ls", "pyright", "clangd", "texlab", "cmake"},
             })
         end,
     },
@@ -34,13 +34,16 @@ return {
             lspconfig.texlab.setup({
                 capabilities = capabilities
             })
+            lspconfig.cmake.setup({
+                capabilities = capabilities
+            })
 
             local wk = require("which-key")
             wk.register({
-                e = {
-                    name = "LSP", -- optional group name
-                },
-            }, { prefix = "<leader>" })
+                {
+                    { "<leader>e", group = "LSP" },
+                }
+            })
         end,
     },
 }

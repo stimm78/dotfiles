@@ -73,3 +73,4 @@ vim.keymap.set("n", "<Leader>9", "<Cmd>BufferGoto 9<CR>")
 vim.keymap.set("n", "<Leader>0", "<Cmd>BufferLast<CR>")
 
 vim.keymap.set("n", "<C-w>", "<Cmd>BufferClose<CR>", { desc = "Close Buffer" })
+

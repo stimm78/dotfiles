@@ -19,11 +19,11 @@ return {
             })
             require("telescope").load_extension("ui-select")
             local wk = require("which-key")
-            wk.register({
-                f = {
-                    name = "file",
-                },
-            }, { prefix = "<leader>" })
+            wk.register(
+                {
+                    { "<leader>f", group = "file" },
+                }
+            )
         end,
     },
 }

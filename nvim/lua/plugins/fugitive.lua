@@ -4,9 +4,9 @@ return {
         local wk = require("which-key")
 
         wk.register({
-            g = {
-                name = "Git",                                                              -- optional group name
-            },
-        }, { prefix = "<leader>" })
+            {
+                { "<leader>g", group = "Git" },
+            }
+        })
     end
 }
