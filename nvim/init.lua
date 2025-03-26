@@ -63,6 +63,7 @@ g.vimtex_view_general_options = [[--unique file:@pdf\#src:@line@tex]]
 g.vimtex_complete_enabled = 0
 g.vimtex_quickfix_mode = 0
 g.vimtex_syntax_enabled = 0
+g.tex_flavor = 'latex'
 
 g.vimtex_syntax_conceal = {
     ['accents'] = 1,
@@ -80,4 +81,11 @@ g.vimtex_syntax_conceal = {
     ['styles'] = 1
 }
 
-
+-- require'luasnip'.config.setup({
+--   update_events = 'TextChanged,TextChangedI',
+--   region_check_events = "InsertEnter",
+--   enable_autosnippets = true
+-- })
+--
+-- require('luasnip.loaders.from_lua').lazy_load({paths = "./snippets"})
+--

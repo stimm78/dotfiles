@@ -56,7 +56,7 @@ return {
     t({'', '\\end{enumerate}'})
   }),
 
-  s({trig='    itm', name='item'}, {t({'\\item '})}),
+  s({trig='itm', name='item'}, {t({'\\item '})}),
 
   s({trig='qt', name='Quotation'},
     fmta([[``<>'']], i(1))

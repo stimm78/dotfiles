@@ -190,7 +190,7 @@ local regularsnips = {
   s({trig='box', name='box'},
     fmt([[\box{{{}}}]], {i(1)}), {condition=mathenv}),
 
-  s({trig='.', name='cdot'}, t('\\cdot '), {condition=mathenv}),
+  s({trig='dt', name='cdot'}, t('\\cdot '), {condition=mathenv}),
 }
 
 return regularsnips, autosnips

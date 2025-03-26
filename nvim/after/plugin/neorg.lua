@@ -5,8 +5,9 @@ require('neorg').setup {
         ["core.dirman"] = {
             config = {
                 workspaces = {
-                    index = "~/Documents/neorg",
+                    home = "~/Documents/neorg",
                 },
+                default_workspace = "home"
             },
         },
         ["core.qol.todo_items"] = {},

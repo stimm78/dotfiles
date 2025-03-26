@@ -1,12 +1,12 @@
 -- bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.ng.t",
-        "--branch=stable", -- latest stable release
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable', -- latest stable release
         lazypath,
     })
 end
@@ -24,7 +24,7 @@ local plugins = {
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-calc',
             'saadparwaiz1/cmp_luasnip',
-            'rafamadriz/friendly-snippets',
+            -- 'rafamadriz/friendly-snippets',
         },
     },
 
@@ -57,27 +57,27 @@ local plugins = {
         build = 'cd app && yarn install',
     },
 
-    {"goolord/alpha-nvim",
+    {'goolord/alpha-nvim',
         dependencies = {
-            "nvim-tree/nvim-web-devicons",
+            'nvim-tree/nvim-web-devicons',
         },
     },
 
     {
-        "MarcoKorinth/onehalf.nvim",
+        'MarcoKorinth/onehalf.nvim',
         lazy = false,
         config = function()
-            vim.cmd("colorscheme onehalflight")
+            vim.cmd('colorscheme onehalflight')
         end
 
     },
 
     {
-        "numToStr/Comment.nvim",
+        'numToStr/Comment.nvim',
     },
 
     {
-        "nvim-neorg/neorg",
+        'nvim-neorg/neorg',
         dependencies = {
             'nvim-neorg/lua-utils.nvim',
             'pysan3/pathlib.nvim',
@@ -86,23 +86,23 @@ local plugins = {
     },
 
     {
-        "nvim-neo-tree/neo-tree.nvim",
+        'nvim-neo-tree/neo-tree.nvim',
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons',
+            'MunifTanjim/nui.nvim',
         },
     },
 
     {
-        "folke/which-key.nvim",
+        'folke/which-key.nvim',
         keys = {
             {
-                "<leader>?",
+                '<leader>?',
                 function()
-                    require("which-key").show({ global = false })
+                    require('which-key').show({ global = false })
                 end,
-                desc = "Buffer Local Keymaps (which-key)",
+                desc = 'Buffer Local Keymaps (which-key)',
             },
         },
     },
@@ -117,5 +117,5 @@ local plugins = {
 -- lazy.nvim optional configurations
 local opts = {}
 
-return require("lazy").setup(plugins, opts)
+return require('lazy').setup(plugins, opts)
 
