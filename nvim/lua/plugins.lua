@@ -63,12 +63,16 @@ local plugins = {
         },
     },
 
+    -- {
+    --     'MarcoKorinth/onehalf.nvim',
+    --     lazy = false,
+    --     config = function()
+    --         vim.cmd('colorscheme onehalflight')
+    --     end
+    --
+    -- },
     {
-        'MarcoKorinth/onehalf.nvim',
-        lazy = false,
-        config = function()
-            vim.cmd('colorscheme onehalflight')
-        end
+        'dericktseng/balance-theme.nvim',
 
     },
 
@@ -105,6 +109,10 @@ local plugins = {
                 desc = 'Buffer Local Keymaps (which-key)',
             },
         },
+    },
+
+    {
+        'ggandor/leap.nvim'
     },
 
     'L3MON4D3/LuaSnip',

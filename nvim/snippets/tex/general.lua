@@ -1,6 +1,21 @@
 local utils = require('sniputils')
 local ls = require('luasnip')
 local extras = require("luasnip.extras")
+local captured = utils.captured
+local capturedtrim = utils.captured_trim
+local mathenv = utils.mathenv
+local extras = require("luasnip.extras")
+local s = ls.snippet
+local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local c = ls.choice_node
+local d = ls.dynamic_node
+local r = ls.restore_node
+local fmta = require("luasnip.extras.fmt").fmta
+local fmt = require("luasnip.extras.fmt").fmt
+local rep = extras.rep
 -- local isn = ls.indent_snippet_node
 
 return {
@@ -314,5 +329,18 @@ return {
           \end{document}
     ]],
     {i(1, 'article'), i(2, 'Title'), t('\t'), t('\t'), i(3)})
-  )
+  ),
+
+    -- Delimiter environments (assume autopairs is used)
+  s({trig='lrp', name='Left-Right Parentheses'},
+    fmta("\\left( <> \\right)<>", {i(1), i(2)}), {condition=mathenv}),
+
+
+  s({trig='lra', name='Left-Right Absolute'},
+    fmta("\\left| <> \\right|<>", {i(1), i(2)}), {condition=mathenv}),
+
+  s({trig='lrb', name='Left-Right Brackets'},
+    fmta("\\left[ <> \\right]<>", {i(1), i(2)}), {condition=mathenv}),
+    -- s({trig='lrb', name='Left-Right Braces'},
+    --   fmta("\\left\\{ <> \\right<>", {i(1), i(2)}), {condition=mathenv}),
 }

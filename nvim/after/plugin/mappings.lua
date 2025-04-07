@@ -10,6 +10,7 @@ wk.add({
     { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep", mode = "n" },
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
     { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags", mode = "n" },
+    { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Quick Fix", mode = "n" },
 
     -- Fugitive git
     { "<leader>g", group = "Git" }, -- Group for telescope keymaps
