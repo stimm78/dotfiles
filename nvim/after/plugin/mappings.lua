@@ -1,6 +1,8 @@
 local fn = require 'functions'
 local keymap = vim.keymap.set
 local wrap = fn.fnwrap
+local illustrate = require('illustrate')
+local illustrate_finder = require('illustrate.finder')
 
 local wk = require("which-key")
 wk.add({
@@ -63,11 +65,25 @@ wk.add({
     { "<leader>n", group = "Neorg" },
     { "<leader>nn", "<Plug>(neorg.dirman.new-note)", desc = "Create new note"},
 
+    -- Illustrate
+    { "<leader>i", group = "Illustrate" },
+    {"<leader>is", mode = "n", function() illustrate.create_and_open_svg() end, desc = "Create SVG"}, 
+    {"<leader>io", mode = "n", function() illustrate.open_under_cursor() end, desc = "Open figure"}, 
+    {"<leader>if", mode = "n", function() illustrate_finder.search_and_open() end, desc = "Search figures"}, 
+    
+    -- Flash
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+
     -- Jump to this file
     { "<leader>m", ":e ~/.config/nvim/after/plugin/mappings.lua <CR>", desc = "Mapping config"},
 
 -- Remap ; to .
     { ".", ";", desc = "Remap ; to .", mode = {"n", "v"}},
+    
 
 })
 

@@ -13,7 +13,10 @@ require('plugins')
 
 -- general vim settings
 g.mapleader = " "
-g.maplocalleader = ";"
+g.maplocalleader = "\\"
+
+-- Background light
+o.background = "light"
 
 -- OPTIONS
 opt.nu = true
@@ -38,7 +41,7 @@ opt.backup = false
 opt.hlsearch = false
 opt.incsearch = true
 
-opt.termguicolors = true
+opt.termguicolors = false 
 
 opt.scrolloff = 8
 opt.signcolumn = "yes"

@@ -42,8 +42,8 @@ local plugins = {
     {
         'neovim/nvim-lspconfig',
         dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
+            'mason-org/mason.nvim',
+            'mason-org/mason-lspconfig.nvim',
         }
     },
 
@@ -62,15 +62,6 @@ local plugins = {
             'nvim-tree/nvim-web-devicons',
         },
     },
-
-    -- {
-    --     'MarcoKorinth/onehalf.nvim',
-    --     lazy = false,
-    --     config = function()
-    --         vim.cmd('colorscheme onehalflight')
-    --     end
-    --
-    -- },
     {
         'dericktseng/balance-theme.nvim',
 
@@ -86,6 +77,14 @@ local plugins = {
             'nvim-neorg/lua-utils.nvim',
             'pysan3/pathlib.nvim',
             'nvim-neotest/nvim-nio',
+        },
+    },
+
+    {
+        'rpapallas/illustrate.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
         },
     },
 
@@ -111,15 +110,12 @@ local plugins = {
         },
     },
 
-    {
-        'ggandor/leap.nvim'
-    },
-
     'L3MON4D3/LuaSnip',
     'nvim-lualine/lualine.nvim',
     'windwp/nvim-autopairs',
     'lervag/vimtex',
     'tpope/vim-fugitive',
+    'folke/flash.nvim',
 }
 
 -- lazy.nvim optional configurations

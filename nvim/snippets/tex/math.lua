@@ -143,6 +143,7 @@ local autosnips = {
     s({trig='hat', name='hat'},
         fmta([[\hat{<>}]], {i(1)}), {condition=mathenv}),
 
+
     -- simple character replacements
     s({trig='del', name='nabla'}, t('\\nabla'), {condition=mathenv}),
     s({trig='inf', name='infinity'}, t('\\infty'), {condition=mathenv}),
@@ -164,6 +165,9 @@ local autosnips = {
 local regularsnips = {
     s({trig='sum', name='sum', wordTrig=true},
         fmta([[\sum_{<>}^{<>} ]], {i(1), i(2)}), {condition=mathenv}),
+
+    s({trig='eval', name='evaluate at'},
+        fmta("\\left. <> \\right\\rvert_{<>}^{<>}", {i(1), i(2), i(3)}), {condition=mathenv}),
 
     s({trig='(%d)e', name='times 10 power', regTrig=true, wordTrig=false},
         fmta([[<> \times 10^{<>}]], {f(captured, {}), i(1)}), {condition=mathenv}),
@@ -219,13 +223,16 @@ local regularsnips = {
         fmta([[\ln <>]], {i(1)}), {condition=mathenv}),
 
     s({trig='dv', name='differentiate'},
-        fmta([[\odv{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
+        fmta([[\odv[order=1]{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
 
     s({trig='pdv', name='partial differentiate'},
-        fmta([[\pdv{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
+        fmta([[\pdv[order=1]{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
 
     s({trig='box', name='box'},
         fmt([[\box{{{}}}]], {i(1)}), {condition=mathenv}),
+
+    s({trig='abs', name='abs'},
+        fmta([[\abs{<>}]], {i(1)}), {condition=mathenv}),
 
     s({trig='.', name='cdot'}, t('\\cdot '), {condition=mathenv}),
 
@@ -264,29 +271,41 @@ s({trig='inner', name='Inner Product'},
     fmta([[ \bra{<>} <> \ket{<>}  ]], {i(1, "\\psi"), i(2), i(3, "\\psi")}), {condition=mathenv}),
 
 -- Matrices
-s({trig='pmat', name='Parentheses Matrix'},
-    fmta([[ \begin{pmatrix} <> \end{pmatrix} ]], {i(1)}), {condition=mathenv}),
-
-s({trig='bmat', name='Brackets Matrix'},
-    fmta([[ \begin{bmatrix} <> \end{bmatrix} ]], {i(1)}), {condition=mathenv}),
-
-s({trig='Bmat', name='Braces Matrix'},
-    fmta([[ \begin{Bmatrix} <> \end{Bmatrix} ]], {i(1)}), {condition=mathenv}),
-
-s({trig='vmat', name='Vertical Lines Matrix'},
-    fmta([[ \begin{vmatrix} <> \end{vmatrix} ]], {i(1)}), {condition=mathenv}),
-
-s({trig='Vmat', name='Double Vertical Lines Matrix'},
-    fmta([[ \begin{Vmatrix} <> \end{Vmatrix} ]], {i(1)}), {condition=mathenv}),
-
-s({trig='matrix', name='Plain Matrix'},
-    fmta([[ \begin{matrix} <> \end{matrix} ]], {i(1)}), {condition=mathenv}),
+-- s({trig='pmat', name='Parentheses Matrix'},
+--     fmta([[ \begin{pmatrix}
+--     <><>
+--     \end{pmatrix} ]], {t('\t'), i(1)}), {condition=mathenv}),
+--
+-- s({trig='bmat', name='Brackets Matrix'},
+--     fmta([[ \begin{bmatrix} 
+--     <><>
+--     \end{bmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
+--
+-- s({trig='Bmat', name='Braces Matrix'},
+--     fmta([[ \begin{Bmatrix} 
+--     <><>
+--     \end{Bmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
+--
+-- s({trig='vmat', name='Vertical Lines Matrix'},
+--     fmta([[ \begin{vmatrix} 
+--     <><>
+--     \end{vmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
+--
+-- s({trig='Vmat', name='Double Vertical Lines Matrix'},
+--     fmta([[ \begin{Vmatrix} 
+--     <><>
+--     \end{Vmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
+--
+-- s({trig='matrix', name='Plain Matrix'},
+--     fmta([[ \begin{matrix} 
+--     <><>
+--     \end{matrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
 
 s({trig='cases', name='Cases Environment'},
     fmta([[ 
-    \begin{cases} 
+    \begin{dcases} 
     <><> 
-    \end{cases} ]], {t('\t'), i(1)}), {condition=mathenv}),
+    \end{dcases} ]], {t('\t'), i(1)}), {condition=mathenv}),
 
 s({trig='array', name='Array Environment'},
     fmta([[ \begin{array} <> \end{array} ]], {i(1)}), {condition=mathenv})

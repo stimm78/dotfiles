@@ -204,6 +204,10 @@ return {
     {trig='emp', name='emphasize'},
     fmta([[\emph{<>}]], {i(1)})
   ),
+  s(
+    {trig='ul', name='underline'},
+    fmta([[\underline{<>}]], {i(1)})
+  ),
 
   s(
     {trig='it', name='italicize'},
@@ -235,7 +239,7 @@ return {
     fmta([[
       \begin{figure}[htpb]
       <>\centering
-      <>\includegraphics[width=\textwidth]{<>}
+      <>\includegraphics[width=0.7\textwidth]{<>}
       <>\caption{<>}
       <>\label{fig:<>}
       \end{figure}

@@ -16,19 +16,10 @@ local servers = {
 -- setup mason
 require"mason".setup()
 require("mason-lspconfig").setup({
-  automatic_installation = true,
-  ensure_installed = servers
+    automatic_installation = true,
+    automatic_enable = true,
+    ensure_installed = servers
 })
-
-require('mason-lspconfig').setup_handlers {
-  function (server_name) -- default handler
-    require('lspconfig')[server_name].setup({
-      flags = { debounce_text_changes = 100 },
-      capabilities = cmp_capability
-    })
-  end,
-}
-
 -- lua_ls configuration
 lspconfig.lua_ls.setup {
   on_init = function(client)
