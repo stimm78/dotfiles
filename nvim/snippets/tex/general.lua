@@ -335,7 +335,6 @@ return {
     {i(1, 'article'), i(2, 'Title'), t('\t'), t('\t'), i(3)})
   ),
 
-    -- Delimiter environments (assume autopairs is used)
   s({trig='lrp', name='Left-Right Parentheses'},
     fmta("\\left( <> \\right)<>", {i(1), i(2)}), {condition=mathenv}),
 

@@ -89,6 +89,9 @@ local autosnips = {
     s({trig='([%a])wt', name='wide tilde after', regTrig=true},
         fmta([[\widetilde{<>}]], {f(captured,{})}), {condition=mathenv}),
 
+    s({trig='([%a])td', name='tilde after', regTrig=true},
+        fmta([[\tilde{<>}]], {f(captured,{})}), {condition=mathenv}),
+
     s({trig='([%a])vec', name='vec after', regTrig=true, wordTrig=false},
         fmta([[\vec{<>}]], {f(captured,{})}), {condition=mathenv}),
 
@@ -131,6 +134,9 @@ local autosnips = {
     s({trig='wt', name='wide tilde'},
         fmta([[\widetilde{<>}]], {i(1)}), {condition=mathenv}),
 
+    s({trig='td', name='tilde'},
+        fmta([[\tilde{<>}]], {i(1)}), {condition=mathenv}),
+
     s({trig='vec', name='vector'},
         fmta([[\vec{<>}]], {i(1)}), {condition=mathenv}),
 
@@ -159,6 +165,7 @@ local autosnips = {
     s({trig='apr', name='approximately'}, t('\\approx '), {condition=mathenv}),
     s({trig='eqv', name='equivalent'}, t('\\equiv'), {condition=mathenv}),
     s({trig='leqv', name='logical equivalence'}, t('\\leftrightarrow'), {condition=mathenv}),
+    s({trig='nn', name='ampersand'}, t('&'), {condition=mathenv}),
 }
 
 -- non-auto-snippets
@@ -186,10 +193,10 @@ local regularsnips = {
         fmta([=[\left[\si{<>}\right]]=], {i(1)}), {condition=mathenv}),
 
     s({trig='int', name='integral'},
-        -- fmta([[\int_{<>}^{<>} {<>} \: d{<>}]], {i(1),i(2),i(3),i(4)}), {condition=mathenv}),
-        fmta([[\int{<>}]], {i(1)}), {condition=mathenv}),
+        fmta([[\int_{<>}^{<>} {<>} \: \mathrm d{<>}]], {i(1),i(2),i(3),i(4)}), {condition=mathenv}),
+        -- fmta([[\int{<>}]], {i(1)}), {condition=mathenv}),
     s({trig='dint', name='integral'},
-        fmta([[\int_{<>}^{<>} {<>} \: d{<>}]], {i(1),i(2),i(3),i(4)}), {condition=mathenv}),
+        fmta([[\int_{<>}^{<>} {<>} \: \mathrm d{<>}]], {i(1),i(2),i(3),i(4)}), {condition=mathenv}),
 
     s({trig='oint', name='integral'},
         -- fmta([[\int_{<>}^{<>} {<>} \: d{<>}]], {i(1),i(2),i(3),i(4)}), {condition=mathenv}),
@@ -222,11 +229,20 @@ local regularsnips = {
     s({trig='ln', name='ln'},
         fmta([[\ln <>]], {i(1)}), {condition=mathenv}),
 
+    -- s({trig='(%d)e', name='times 10 power', regTrig=true, wordTrig=false},
+    --     fmta([[<> \times 10^{<>}]], {f(captured, {}), i(1)}), {condition=mathenv}),
+
     s({trig='dv', name='differentiate'},
-        fmta([[\odv[order=1]{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
+        fmta([[\odv{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
 
     s({trig='pdv', name='partial differentiate'},
-        fmta([[\pdv[order=1]{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
+        fmta([[\pdv{<>}{<>}]], {i(1,'y'), i(2,'t')}), {condition=mathenv}),
+
+    s({trig='(%d)dv', name='differentiate order', regTrig=true, wordTrig=false},
+        fmta([[\odv[order=<>]{<>}{<>}]], {f(captured,{}), i(1,'y'), i(2,'t')}), {condition=mathenv}),
+
+    s({trig='(%d)pdv', name='partial differentiate order', regTrig = true, wordTrig=false},
+        fmta([[\pdv[order=<>]{<>}{<>}]], {f(captured,{}), i(1,'y'), i(2,'t')}), {condition=mathenv}),
 
     s({trig='box', name='box'},
         fmt([[\box{{{}}}]], {i(1)}), {condition=mathenv}),
@@ -256,50 +272,50 @@ local regularsnips = {
         t("\\otimes "), {condition=mathenv}),
 
 s({trig='bra', name='Bra Vector'},
-    fmta([[ \bra{<>} ]], {i(1)}), {condition=mathenv}),
+    fmta([[\bra{<>}]], {i(1)}), {condition=mathenv}),
 
 s({trig='ket', name='Ket Vector'},
-    fmta([[ \ket{<>} ]], {i(1)}), {condition=mathenv}),
+    fmta([[\ket{<>}]], {i(1)}), {condition=mathenv}),
 
 s({trig='brk', name='Bra-Ket Notation'},
-    fmta([[ \braket{<>|<>} ]], {i(1), i(2)}), {condition=mathenv}),
+    fmta([[\braket{<>|<>}]], {i(1), i(2)}), {condition=mathenv}),
 
 s({trig='outer', name='Outer Product'},
-    fmta([[ \ket{<>} \bra{<>} ]], {i(1, "\\psi"), i(2, "\\psi")}), {condition=mathenv}),
+    fmta([[\ket{<>} \bra{<>}]], {i(1, "\\psi"), i(2, "\\psi")}), {condition=mathenv}),
 
 s({trig='inner', name='Inner Product'},
-    fmta([[ \bra{<>} <> \ket{<>}  ]], {i(1, "\\psi"), i(2), i(3, "\\psi")}), {condition=mathenv}),
+    fmta([[\bra{<>} <> \ket{<>}]], {i(1, "\\psi"), i(2), i(3, "\\psi")}), {condition=mathenv}),
 
 -- Matrices
--- s({trig='pmat', name='Parentheses Matrix'},
---     fmta([[ \begin{pmatrix}
---     <><>
---     \end{pmatrix} ]], {t('\t'), i(1)}), {condition=mathenv}),
---
--- s({trig='bmat', name='Brackets Matrix'},
---     fmta([[ \begin{bmatrix} 
---     <><>
---     \end{bmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
---
--- s({trig='Bmat', name='Braces Matrix'},
---     fmta([[ \begin{Bmatrix} 
---     <><>
---     \end{Bmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
---
--- s({trig='vmat', name='Vertical Lines Matrix'},
---     fmta([[ \begin{vmatrix} 
---     <><>
---     \end{vmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
---
--- s({trig='Vmat', name='Double Vertical Lines Matrix'},
---     fmta([[ \begin{Vmatrix} 
---     <><>
---     \end{Vmatrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
---
--- s({trig='matrix', name='Plain Matrix'},
---     fmta([[ \begin{matrix} 
---     <><>
---     \end{matrix} ]], {{t('\t'), i(1)}}), {condition=mathenv}),
+s({trig='pmat', name='Parentheses Matrix'},
+    fmta([[\begin{pmatrix}
+<>
+\end{pmatrix}]], {i(1)}), {condition=mathenv}),
+
+s({trig='bmat', name='Brackets Matrix'},
+    fmta([[\begin{bmatrix}
+<>
+\end{bmatrix}]], {i(1)}), {condition=mathenv}),
+
+s({trig='Bmat', name='Braces Matrix'},
+    fmta([[\begin{Bmatrix}
+<>
+\end{Bmatrix}]], {i(1)}), {condition=mathenv}),
+
+s({trig='vmat', name='Vertical Lines Matrix'},
+    fmta([[\begin{vmatrix}
+<>
+\end{vmatrix}]], {i(1)}), {condition=mathenv}),
+
+s({trig='Vmat', name='Double Vertical Lines Matrix'},
+    fmta([[\begin{Vmatrix}
+<>
+\end{Vmatrix}]], {i(1)}), {condition=mathenv}),
+
+s({trig='matrix', name='Plain Matrix'},
+    fmta([[\begin{matrix}
+<>
+\end{matrix}]], {i(1)}), {condition=mathenv}),
 
 s({trig='cases', name='Cases Environment'},
     fmta([[ 

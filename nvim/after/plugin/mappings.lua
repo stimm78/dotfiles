@@ -78,6 +78,18 @@ wk.add({
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
 
+    -- Change tabs
+    {"<Leader>1", mode = {"n"}, "1gt"},
+    {"<Leader>2", mode = {"n"}, "2gt"},
+    {"<Leader>3", mode = {"n"}, "3gt"},
+    {"<Leader>4", mode = {"n"}, "4gt"},
+    {"<Leader>5", mode = {"n"}, "5gt"},
+    {"<Leader>6", mode = {"n"}, "6gt"},
+    {"<Leader>7", mode = {"n"}, "7gt"},
+    {"<Leader>8", mode = {"n"}, "8gt"},
+    {"<Leader>9", mode = {"n"}, "9gt"},
+    {"<Leader>0", mode = {"n"}, ":tablast<CR>"},
+
     -- Jump to this file
     { "<leader>m", ":e ~/.config/nvim/after/plugin/mappings.lua <CR>", desc = "Mapping config"},
 
